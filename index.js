@@ -6,7 +6,7 @@ import fetch from "node-fetch";
 import Web3 from "web3";
 
 const app = express();
-const port = parseInt(process.env.PORT, 10);
+const port = process.env.PORT;
 
 // Ipfs
 const gateway = process.env.GATEWAY;
@@ -367,7 +367,7 @@ const abi = [
 
 const contract = new web3.eth.Contract(abi, address);
 
-app.get("/metadata/:tokenId", async (req, res) => {
+app.get("/:tokenId", async (req, res) => {
   let startingTime = Date.now();
   // Checking the arg
   if (

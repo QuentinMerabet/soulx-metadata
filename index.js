@@ -128,6 +128,16 @@ const abi = [
   },
   {
     inputs: [
+      { internalType: "address", name: "nftAddress", type: "address" },
+      { internalType: "uint256", name: "price", type: "uint256" },
+    ],
+    name: "claimNFTStampForDemo",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
       { internalType: "uint256", name: "dnaId", type: "uint256" },
       { internalType: "uint256", name: "amount", type: "uint256" },
     ],
@@ -144,13 +154,20 @@ const abi = [
     type: "function",
   },
   {
+    inputs: [],
+    name: "claimStampsForDemo",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
     inputs: [
       { internalType: "string", name: "category", type: "string" },
-      { internalType: "string", name: "style", type: "string" },
       { internalType: "string", name: "client", type: "string" },
       { internalType: "string", name: "title", type: "string" },
       { internalType: "string", name: "description", type: "string" },
       { internalType: "string", name: "unit", type: "string" },
+      { internalType: "bool", name: "isNftAssociated", type: "bool" },
       { internalType: "address", name: "nftAddress", type: "address" },
     ],
     name: "createStampDNA",
@@ -170,9 +187,17 @@ const abi = [
     name: "getPassportById",
     outputs: [
       { internalType: "string", name: "name", type: "string" },
+      { internalType: "address", name: "owner", type: "address" },
       { internalType: "uint256", name: "createdAt", type: "uint256" },
       { internalType: "uint256", name: "look", type: "uint256" },
     ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "address", name: "owner", type: "address" }],
+    name: "getPassportIdByAddress",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function",
   },
@@ -184,13 +209,13 @@ const abi = [
     name: "getStampByIndex",
     outputs: [
       { internalType: "string", name: "category", type: "string" },
-      { internalType: "string", name: "style", type: "string" },
       { internalType: "string", name: "client", type: "string" },
       { internalType: "string", name: "title", type: "string" },
       { internalType: "string", name: "description", type: "string" },
       { internalType: "uint256", name: "timestamp", type: "uint256" },
       { internalType: "uint256", name: "amount", type: "uint256" },
       { internalType: "string", name: "unit", type: "string" },
+      { internalType: "bool", name: "isNftAssociated", type: "bool" },
       { internalType: "address", name: "nftAddress", type: "address" },
       { internalType: "uint256", name: "nftId", type: "uint256" },
       { internalType: "bool", name: "isPublic", type: "bool" },

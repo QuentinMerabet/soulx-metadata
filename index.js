@@ -409,7 +409,7 @@ app.get("/:tokenId", async (req, res) => {
 
     const metadata = {
       name: `SoulX Passport #${req.params.tokenId}`,
-      image: "https://soulx.org/img/cover.gif",
+      image: `https://soulx-animation.vercel.app/?id=${req.params.tokenId}`,
       animation_url: `https://soulx-animation.vercel.app/?id=${req.params.tokenId}`,
       attributes: [
         { value: passport.name, trait_type: "Username" },
